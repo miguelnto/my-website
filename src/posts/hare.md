@@ -10,8 +10,7 @@ published: true
 
 ### So what is Hare?
 
-If you're looking for yet another systems programming language that is trying to substitute C, here is Hare for you!
-From the official website:
+I was looking for a systems programming language to use instead of C for future projects. I wanted something as fast as C and as fully-featured as Go. While I was searching, I came across the Hare programming language. The way they describe the language caught my attention:
 
 *["One of Hare’s explicit design goals is to produce a programming language which will be stable over a very long period of time, exceeding the lifetime of its authors: 
 I think of Hare as a 100-year programming language."](https://harelang.org/blog/2023-11-08-100-year-language/)*
@@ -20,40 +19,34 @@ They also describe it as a simple and robust systems programming language:
 
 *["Hare is a systems programming language designed to be simple, stable, and robust. Hare uses a static type system, manual memory management, and a minimal runtime."](https://harelang.org)*
 
-In this article we'll explore the setup, the basics, and create a simple GUI demo project using Hare.
+So I decided to give it a try. In this article we'll explore the setup, the basics, and create a simple GUI demo project using Hare.
 
 ### Setup
 
-For the sake of reproducibility, we'll be using Arch Linux. The instructions presented here should not be too different in other systems so you'll be able to easily figure out what you need to do in your specific system.
-
-First of all, what we want to do is install the Hare compiler. 
-
-**As you can imagine, Hare is available on the AUR!** That means you can just install it using your favorite AUR helper just like you would with any other program that is available on the AUR. 
-
-We'll use [baph](contact) here, but you can use any AUR helper:
-
-```
-baph -i hare
-```
-
-You can check where Hare got installed by running `whereis hare`.
+For this tutorial I'll be using Arch Linux. The instructions presented here should not be too different in other systems so you'll be able to easily figure out what you need to do in your specific system.
 
 If you're using Windows or macOS, however, I have some bad news from the official [Hare documentation](https://harelang.org/documentation/faq.html#will-hare-support-windows-or-macos):
 
 "*Hare does not and will not officially support proprietary operating systems upstream.*"
 
-You can find further explanation in the documentation if you want to read more on this subject. Let's move on to creating a project.
+First of all, what we want to do is install the Hare compiler. 
+
+**As you can imagine, Hare is available on the AUR.** We'll use [sah](https://github.com/miguelnto/sah) here, but you can use your favorite AUR helper:
+
+```
+sah -i hare
+```
 
 As far as I know, the Hare toolchain doesn't provide us any command for initializing a project, as you would see in many modern programming languagens. This doesn't bother me as I like building my own project structures.
 
-Let's now create a directory called `hare-gui-demo` (yes we are making a GUI application) and `cd` into it:
+Having said that, let's create a directory called `hare-gui-demo` (we'll be creating a GUI application) and `cd` into it:
 
 ```bash
 mkdir hare-gui-demo
 cd hare-gui-demo
 ```
 
-To create a GUI application, we need a proper GUI library. For this demo, I've chosen to use raylib. Be aware that Raylib is recommended for making games and not any general purpose GUI application. It shouldn't be a problem since *we're just creating a demo.* 
+To create a GUI application, we need a proper GUI library. For this demo, I've chosen to use raylib. Be aware that Raylib is recommended for making games and not for general purpose GUI applications. 
 
 On Arch Linux, you can install raylib via Pacman:
 
@@ -63,7 +56,7 @@ pacman -S raylib
 
 And that's it.
 
-Let's now create a Makefile, to save our fingers from writing the full `hare build` command everytime.
+Let's now create a Makefile, to add some convenience when building or running the project.
 
 `Makefile`
 
@@ -76,7 +69,7 @@ run:
 .PHONY: build run
 ```
 
-`make build` will build the project, and `make run` will run our project. Very convinient, huh?
+`make build` will build the project, and `make run` will run our project. Very intuitive, huh? 
 
 As you saw in the Makefile, we'll be creating a **main.ha** file. Hare source files end with **.ha**:
 
@@ -93,11 +86,11 @@ cd raylib
 
 In Hare, a directory defines a module. We'll see the implications of this when editing the `main.ha` file.
 
-Here, let's create a `raylib.ha` file where we'll define symbols to call C code from Hare, i.e the functions from raylib. Inside this file, let's start to write our first Hare program.
+Here, let's create a `raylib.ha` file, where we'll define symbols to call C code from Hare, i.e the functions from raylib. Inside this file, let's start to write our first Hare program.
 
 ### Using Hare + Raylib
 
-To call C code from Hare, we need the C types defined. let's import then, or *use* them:
+To call C code from Hare, we need the C types defined. let's import them, or *use* them:
 
 `raylib.ha`
 
@@ -105,7 +98,7 @@ To call C code from Hare, we need the C types defined. let's import then, or *us
 use types::c;
 ```
 
-Apparently the Hare language loves semicolons so get used to it. Let's create a type Color so we can easily create new RGBA color objects:
+The Hare language loves semicolons so get used to it. Let's create a type Color so we can easily create new RGBA color objects:
 
 `raylib.ha`
 
@@ -132,7 +125,7 @@ export fn InitWindow(width: size, height: size, title: str) void = {
 @symbol("InitWindow") fn init_window(size, size, *c::char) void;
 ```
 
-The init_window function refers to the actual InitWindow function from raylib. The InitWindow function we defined wraps this function, just to convert from a `str` to a `const char*`. This way, we would be able call InitWindow like this:
+The init_window function refers to the actual InitWindow function from raylib. The InitWindow function we defined wraps this function, just to convert from a `str` to a `const char*`. This way, we are able call InitWindow like this:
 
 ```js
 InitWindow(800,800,"Hello World");
@@ -188,7 +181,7 @@ const WHITE = raylib::Color {
 
 Note that variables declared as `const` are actually *immutable*.
 
-Finally, let's create our `main` function. *Yes, there's a main function just like C's main function.* Note that it must be "exported" so that the Hare runtime can use it. Also, it accepts no paremeters and returns no values:
+Finally, let's create our `main` function. *Yes, there's a main function just like C's main function.* Note that the main function must also be "exported". Also, it accepts no paremeters and returns no values:
 
 `main.ha`
 
@@ -197,7 +190,7 @@ export fn main() void = {
 };
 ```
 
-Now it's time to finally write the logic of our little project. What we'll want to do is:
+Now it's time to finally write the logic of our little project. What we want to do is:
 
 - Initialize a window with a red background
 - Display a white colored box
@@ -261,15 +254,16 @@ And voilà! A ugly red screen with a white box should appear in your screen.
 
 ### Overview
 
-Overall, I really liked using Hare and it definitely seems a promising language. It looks like C but has some [type safety](https://harelang.org/tutorials/introduction#thinking-in-terms-of-ownership) features, as well as modules, a built-in build command, etc. 
+Overall, I really liked using Hare and it definitely seems a promising language. It looks like C but with some [type safety](https://harelang.org/tutorials/introduction#thinking-in-terms-of-ownership) features, as well as modules, a built-in build command, etc. 
 
-Would I use it in a future project? Yes. Would I recommend it? Yes, if you're looking for something like C but with much better tooling, safety, and modules, while still being minimal, fast, and elegant. 
+Would I use it in a future project? Probably. Would I recommend it? Yes, if you're looking for something like C but with much better tooling, safety, and modules, while still being minimal, fast, and elegant. 
 
-It's true that I've been looking for such a language for quite some time, but I really wanted it to be multi-plataform *(that is, I want it to run on Windows and macOS).* If you don't care about this, yeah, Hare is definitely for you.
+The downside to me is that Hare doesn't run on proprietary operating systems. I really wanted it to be multi-plataform *(that is, I want it to run on Windows and macOS).* If you don't care about this, yeah, Hare is definitely for you.
 
-I'm looking forward to see how the language will evolve and if it's really going to be a 100 year language.
+I'm looking forward to see how the language will evolve.
 
-Also feel free to [contact me.](contact)
+**As always, stay <i>safe</i>.**
 
-As always, stay <i>safe</i>.
+*If this article has helped you in any way, consider [supporting](support) this blog. Feel free to [contact me](contact) as well.*
+
 

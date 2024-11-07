@@ -1,8 +1,7 @@
 <script lang="ts">
     import { copy } from 'svelte-copy';
-    const { addr, QrCode, iconName, cryptoName } = $props<{
+    const { addr, iconName, cryptoName } = $props<{
         addr: string,
-        QrCode: string,
         iconName: string,
         cryptoName: string,
     }>();
@@ -22,8 +21,6 @@
 
 <Icon width={20} height={20} icon={iconName} style="display: inline" inline={true} /> 
 <b class="crypto">{cryptoName}</b>
-
-<img width="300" height="300" src={QrCode} alt={cryptoName} />
 
 <p>
     <button on:click={onCopy} use:copy={addr}>
@@ -49,6 +46,6 @@
     }
     .address {
         text-shadow: none;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 </style>
