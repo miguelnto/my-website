@@ -11,3 +11,5 @@
 	<li><b>- Github:</b> <a href='https://github.com/miguelnto'>miguelnto</a></li>
 	<li><b>- Discord:</b> miguelnto</li>
 </ul>
+
+Feel free to contact me anyway you want. I read new e-mails everyday, but Discord is preferred if you want to chat in real-time.
