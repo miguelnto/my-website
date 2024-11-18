@@ -10,7 +10,7 @@
 	<li><b>- Email:</b> miguelup01@outlook.com</li>
 	<li><b>- Github:</b> <a href='https://github.com/miguelnto'>miguelnto</a></li>
 	<li><b>- Discord:</b> miguelnto</li>
-	<li><b>- Youtube:</b> <a href='https://www.youtube.com/@miguelwritescode'>miguelcodes</a></li>
+	<li><b>- Youtube:</b> <a href='https://www.youtube.com/@miguelnetocodes'>miguelcodes</a></li>
 </ul>
 
 <br>

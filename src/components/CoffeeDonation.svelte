@@ -28,7 +28,7 @@
 </a>
 
 <p>
-    <button on:click={onCopy} use:copy={addr}>
+    <button onclick={onCopy} use:copy={addr}>
         <b class="address">{cryptoaddr}</b>
         <Icon width={20} height={20} icon="solar:copy-bold" style="display: inline" inline={true} /> 
     </button>

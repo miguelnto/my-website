@@ -23,7 +23,7 @@
 <b class="crypto">{cryptoName}</b>
 
 <p>
-    <button on:click={onCopy} use:copy={addr}>
+    <button onclick={onCopy} use:copy={addr}>
         <b class="address">{cryptoaddr}</b>
         <Icon width={20} height={20} icon="solar:copy-bold" style="display: inline" inline={true} /> 
     </button>
@@ -33,10 +33,6 @@
 <style>
     .crypto {
         font-size: 1.5em;
-    }
-    img {
-        margin-top: 1em;
-        margin-bottom: 1em;
     }
     button {
         height: 2em;
