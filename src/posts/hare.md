@@ -262,7 +262,7 @@ The downside to me is that Hare doesn't run on proprietary operating systems. I 
 
 I'm looking forward to see how the language will evolve.
 
-**As always, stay <i>safe</i>.**
+**Happy hacking!**
 
 *If this article has helped you in any way, consider [supporting](support) this blog. Feel free to [contact me](contact) as well.*
 

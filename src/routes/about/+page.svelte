@@ -1,3 +1,13 @@
+<script lang="ts">
+    const brIcon: string = "twemoji:flag-brazil";
+    const ukIcon: string = "twemoji:flag-united-kingdom";
+    const frIcon: string = "twemoji:flag-france";
+    const espIcon: string = "twemoji:flag-spain";
+    import Icon from '@iconify/svelte';
+    import myphoto from "$lib/images/me.png";
+
+</script>
+
 <svelte:head>
     <title>About me</title>
 </svelte:head>
@@ -6,20 +16,28 @@
 
 <br>
 
-<p>Hello there! I'm Miguel Neto, a Software Developer trying to solve real world problems and make software development easier. I'm interested in web development, mobile development, Linux, systems programming and linguistics. Here I'll post some thoughts about these things.
-</p>
-<p>In my blog, you'll see me talking about new technologies and its applications, tutorials, tips, rants, and opinions (mostly) on technology-related topics.</p> 
+<img width="230" height="230" src={myphoto} alt="me" />
+
+<br>
+
+<p>Hello there! I'm Miguel Neto, a <b>Software Developer</b> trying to solve real world problems and make software development easier to everyone.</p>
+<p>This website is meant to be my <i>internet home</i> where I'll post some thoughts about things I'm interested in, such as Linux, web development, mobile development, systems programming and linguistics.</p>
 <p>You can also find me in a lot of websites, take a look at the <a href="/contact">contact</a> page.</p>
 
 <br>
 
-<h5>Feel free to talk to me in:</h5>
+<h4>Idioms</h4>
 
 <br>
 
-<ul>
-    <li>- English</li>
-    <li>- Portuguese</li>
-    <li>- French</li>
-    <li>- Spanish</li>
-</ul>
+<Icon width={20} height={20} icon={brIcon} style="display: inline" inline={true} />
+<b>Native</b>
+<Icon width={20} height={20} icon={ukIcon} style="display: inline" inline={true} />
+<b>C2</b>
+<Icon width={20} height={20} icon={frIcon} style="display: inline" inline={true} />
+<b>B2</b>
+<Icon width={20} height={20} icon={espIcon} style="display: inline" inline={true} />
+<b>C2</b>
+
+<br>
+
