@@ -25,7 +25,7 @@
 <br>
 
 <p>
-I create a bunch of stuff on the internet: open-source software, livestreams, tutorials, blog posts, etc. I charge for nothing, and believe these should be free of charge. 
+I create a bunch of stuff on the internet: open-source software, videos, tutorials, blog posts, etc. I charge for nothing, and believe these should be free of charge. 
 </p>
 <p>
 If this blog or any of my work has ever helped you in any way, consider helping me back as well. You'll be also contributing to keep this blog alive.

@@ -1,5 +1,5 @@
 ---
-title: The 100-year Programming Language
+title: The Hare Programming Language
 description: In this article we'll explore Hare, a systems programming language that aims to be stable over a very long period of time.
 date: '2024-10-22'
 categories:
