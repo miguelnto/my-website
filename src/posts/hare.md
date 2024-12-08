@@ -8,6 +8,14 @@ categories:
 published: true
 ---
 
+<script lang="ts">
+    const hare: string = "https://harelang.org/mascot.png";
+</script>
+
+<br>
+
+<img style="margin: auto;" width="200" src={hare} alt="me" />
+
 ### So what is Hare?
 
 I was looking for a systems programming language to use instead of C for future projects. I wanted something as fast as C and as fully-featured as Go. While I was searching, I came across the Hare programming language. The way they describe the language caught my attention:

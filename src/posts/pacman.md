@@ -9,6 +9,14 @@ categories:
 published: true
 ---
 
+<script lang="ts">
+    const arch: string = "https://archlinux.org/static/logos/archlinux-logo-dark-90dpi.ebdee92a15b3.png";
+</script>
+
+<br>
+
+<img style="margin: auto;" width="450" src={arch} alt="me" />
+
 ###  Introduction
 
 Pacman is the official Arch Linux package manager (which of course is used in other Arch based distros, such as Manjaro). It features dependency support, package groups, install and uninstall scripts, etc. You can read all the details on the **man page** for Pacman. 
