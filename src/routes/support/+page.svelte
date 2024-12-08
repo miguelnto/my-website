@@ -8,11 +8,9 @@
     const moneroAddress: string = "45uo41ekuzC9XHz1Az6ZNyfdHLuS5qSk4RKxtJ7ENC1RbsnSPmghar4VNwavUzdsw5gEm27VpgBBDhzZg2ScWU64Kc3WA31";
     const moneroIcon: string = "logos:monero";
     const bitcoinIcon: string = "logos:bitcoin";
-    const brazilIcon: string = "twemoji:flag-brazil"
     const CoffeeIcon: string = "raphael:coffee"
-    const pixCode: string = "miguelup01@outlook.com"
     const kofiLink: string = "https://ko-fi.com/miguelnto"
-    const livepixLink: string = "https://livepix.gg/miguelcodes"
+    const livepixLink: string = "https://pixgg.com/eclipse"
     const livepixIcon: string = "fluent:live-24-filled"
 </script>
 
@@ -35,7 +33,7 @@ If this blog or any of my work has ever helped you in any way, consider helping 
 
 <CoffeeDonation addr={kofiLink} iconName={CoffeeIcon} cryptoName="Ko-fi" />
 
-<PixDonation addr={livepixLink} iconName={livepixIcon} cryptoName="LivePix" />
+<PixDonation addr={livepixLink} iconName={livepixIcon} cryptoName="Pixgg" />
 
 <CryptoDonation addr={moneroAddress} QrCode={MoneroQr} iconName={moneroIcon} cryptoName="Monero" />
 

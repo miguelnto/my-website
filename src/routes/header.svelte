@@ -12,7 +12,7 @@
   <!-- Navigation -->
 	<ul class="links">
 		<li>
-			<a href="/about">About</a>
+			<a href="/blog">Blog</a>
 		</li>
 		<li>
 			<a href="/contact">Contact</a>
